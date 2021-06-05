@@ -1,2 +1,2 @@
 # Trisenaii
-The official Github repository of Trisenaii, a fun (maybe) text-based RPG.
+The official Github repository of Trisenaii, a text-based RPG written in Java.

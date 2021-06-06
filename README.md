@@ -9,4 +9,5 @@ To check if whatever your using supports ANSI escape codes, first run the progra
 
 More info about ANSI escape codes can be found in the links below:
 https://www.reddit.com/r/java/comments/1uuvqo/clear_terminal_screen_linux/
+
 https://www.javatpoint.com/how-to-clear-screen-in-java#ANSI-escape-Code

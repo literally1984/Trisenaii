@@ -27,7 +27,7 @@ class createandwriteFile extends Thread {
   }
     /*
      * String heavystick = "Heavy stick"; String policebaton = "Police baton";
-     * String wackywhacker = "Wacky whacker™"; String velociraptortooth =
+     * String wackywhacker = "Wacky whackerâ„¢"; String velociraptortooth =
      * "Velociraptor tooth"; String woodensword = "Wooden sword"; String ironsword =
      * "Iron sword"; String streetmagicianwand = "Street magician wand"; String
      * magestaff = "Mage staff"; String houdinisscepter = "Houdini's scepter";
@@ -100,7 +100,7 @@ class menu extends Thread {
   }
 }
 
-public class TrisenaiiClass extends Thread {
+public class Trisenaii extends Thread {
   public static void main(String[] args) throws Exception {
     {
       File inv = new File("inventory.txt");

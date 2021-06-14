@@ -743,9 +743,63 @@ public class TrisenaiiClass extends Thread {
     	Thread.sleep(2000);
     	System.out.println("You dealt " + yourdmgestrtmagwnd + " damage to the enemy Olbap.");
     	olbaphealth = olbaphealth - yourdmgestrtmagwnd;
-    	System.out.println("Your health " + yourhealth);
+    	System.out.println("Enemy Olbap health: " + olbaphealth);
     	for (; olbaphealth > 0 && yourhealth > 0;) {
     		olbapattckdmgesmw = rng.nextInt(18) + 5;
+    		Thread.sleep(2000);
+    		System.out.println("You took " + olbapattckdmgesmw + " damage from the enemy Olbap.");
+    		yourhealth = yourhealth - olbapattckdmgesmw;
+    		System.out.println("Your health: " + yourhealth);
+    		Thread.sleep(2000);
+    		System.out.println("Your turn:");
+    		System.out.println("Primary attack: Health goes poof[15-20 damage dealt]    Secondary attack: Leech[+8-10 health per attack, lasts for 3 turns, cooldown is 2 turns]");
+    		tutrlbttl = tutrlbttlObj.nextLine();
+    		if (!tutrlbttl.equals("Health goes poof") && !tutrlbttl.equals("Leech")) {
+    			for(; !tutrlbttl.equals("Health goes poof") && !tutrlbttl.equals("Leech");) {
+    				System.out.println("Error: User input not recognized. Try again?");
+    				tutrlbttl = tutrlbttlObj.nextLine();
+    			}
+    		}
+    		if (tutrlbttl.equals("Health goes poof")) {
+    			yourdmgestrtmagwnd = rng4.nextInt(5) + 15;
+    			Thread.sleep(2000);
+    			System.out.println("You dealt " + yourdmgestrtmagwnd + " damage to the enemy Olbap.");
+    			olbaphealth = olbaphealth - yourdmgestrtmagwnd;
+    			System.out.println("Enemy Olbap health: " + olbaphealth);
+    			continue;
+    		}
+    		else if (tutrlbttl.equals("Leech")) {
+    			System.out.println("You leeched your enemy's health. From now on for 3 turns, whenever it's your turn and you attack the enemy, you will gain between 8 and 10 health, and of course, still damage the enemy.");
+    			for (int countermagwnd = 0; olbaphealth > 0 && yourhealth > 0 && countermagwnd < 3; ++countermagwnd) {
+    				olbapattckdmgesmw = rng.nextInt(18) + 5;
+    	    		Thread.sleep(2000);
+    	    		System.out.println("You took " + olbapattckdmgesmw + " damage from the enemy Olbap.");
+    	    		yourhealth = yourhealth - olbapattckdmgesmw;
+    	    		System.out.println("Your health: " + yourhealth);
+    	    		Thread.sleep(2000);
+    	    		System.out.println("Your turn:");
+    	    		System.out.println("Primary attack: Health goes poof[15-20 damage dealt]    Secondary attack: Leech[On cooldown]");
+    	    		tutrlbttl = tutrlbttlObj.nextLine();
+    	    		if (!tutrlbttl.equals("Health goes poof") && !tutrlbttl.equals("Leech")) {
+    	    			for(; !tutrlbttl.equals("Health goes poof") && !tutrlbttl.equals("Leech");) {
+    	    				System.out.println("Error: User input not recognized. Try again?");
+    	    				tutrlbttl = tutrlbttlObj.nextLine();
+    	    			}
+    	    		}
+    	    		if (tutrlbttl.equals("Health goes poof")) {
+    	    			yourdmgestrtmagwnd = rng4.nextInt(5) + 15;
+    	    			
+    	    			Thread.sleep(2000);
+    	    			System.out.println("You dealt " + yourdmgestrtmagwnd + " damage to the enemy Olbap.");
+    	    			olbaphealth = olbaphealth - yourdmgestrtmagwnd;
+    	    			System.out.println("Enemy Olbap health: " + olbaphealth);
+    	    			continue;
+    	    		}
+    	    		else if(tutrlbttl.equals("Leech")) {
+    	    			
+    	    		}
+    			}
+    		}
     	}
     default:
       for (; !tutrlbttl.equals("Heavy hit") && !tutrlbttl.equals("Vicious slice") && !tutrlbttl.equals("Block")

@@ -27,7 +27,7 @@ class createandwriteFile extends Thread {
   }
     /*
      * String heavystick = "Heavy stick"; String policebaton = "Police baton";
-     * String wackywhacker = "Wacky whacker™"; String velociraptortooth =
+     * String wackywhacker = "Wacky whacker"; String velociraptortooth =
      * "Velociraptor tooth"; String woodensword = "Wooden sword"; String ironsword =
      * "Iron sword"; String streetmagicianwand = "Street magician wand"; String
      * magestaff = "Mage staff"; String houdinisscepter = "Houdini's scepter";

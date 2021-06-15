@@ -301,7 +301,7 @@ public class TrisenaiiClass extends Thread {
       System.out.println("Primary attack: Vicious slice[20-25 damage dealt]   Secondary attack: Block[1/4 less damage taken from enemy attacks, lasts for 2 turns, cooldown is 1 turn]");
       break;
     case "Street magician wand":
-      System.out.println("Primary attack: Health goes poof[15-20 damage dealt]    Secondary attack: Leech[+8-10 health per attack, lasts for 3 turns, cooldown is 2 turns]");
+      System.out.println("Primary attack: Health goes poof[18-22 damage dealt]    Secondary attack: Leech[+8-10 health per attack, lasts for 3 turns, cooldown is 2 turns]");
       break;
     case "Damaged cable":
       System.out.println("Primary attack: Electric shock[10-15 damage dealt, 5-10 damage chained to other enemies]  Secondary attack: Static touch[+5 damage dealt, 2 turns]");
@@ -321,7 +321,7 @@ public class TrisenaiiClass extends Thread {
     int olbapdcreasedmgebruh = olbapattckdmgevt/4;
     int olbapdcreasedmge = olbapattckdmgevt - olbapdcreasedmgebruh;
     Random rng4 = new Random();
-    int yourdmgestrtmagwnd = rng4.nextInt(5) + 15;
+    int yourdmgestrtmagwnd = rng4.nextInt(4) + 18;
     int olbapattckdmgesmw = rng4.nextInt(18) + 5;
     int yourhealthincr = rng4.nextInt(2) + 8;
     switch (tutrlbttl) {
@@ -740,7 +740,7 @@ public class TrisenaiiClass extends Thread {
       }
       break;
     case "Health goes poof":
-    	yourdmgestrtmagwnd = rng4.nextInt(5) + 15;
+    	yourdmgestrtmagwnd = rng4.nextInt(4) + 18;
     	Thread.sleep(2000);
     	System.out.println("You dealt " + yourdmgestrtmagwnd + " damage to the enemy Olbap.");
     	olbaphealth = olbaphealth - yourdmgestrtmagwnd;
@@ -774,7 +774,7 @@ public class TrisenaiiClass extends Thread {
     			}
     		}
     		if (tutrlbttl.equals("Health goes poof")) {
-    			yourdmgestrtmagwnd = rng4.nextInt(5) + 15;
+    			yourdmgestrtmagwnd = rng4.nextInt(4) + 18;
     			Thread.sleep(2000);
     			System.out.println("You dealt " + yourdmgestrtmagwnd + " damage to the enemy Olbap.");
     			olbaphealth = olbaphealth - yourdmgestrtmagwnd;
@@ -818,7 +818,7 @@ public class TrisenaiiClass extends Thread {
     	    			}
     	    		}
     	    		if (tutrlbttl.equals("Health goes poof")) {
-    	    			yourdmgestrtmagwnd = rng4.nextInt(5) + 15;
+    	    			yourdmgestrtmagwnd = rng4.nextInt(4) + 18;
     	    			yourhealthincr = rng4.nextInt(2) + 8;
     	    			Thread.sleep(2000);
     	    			System.out.println("You dealt " + yourdmgestrtmagwnd + " damage to the enemy Olbap.");
@@ -841,7 +841,7 @@ public class TrisenaiiClass extends Thread {
     	    				tutrlbttl = tutrlbttlObj.nextLine();
     	    			}
     	    		}
-    	    		yourdmgestrtmagwnd = rng4.nextInt(5) + 15;
+    	    		yourdmgestrtmagwnd = rng4.nextInt(4) + 18;
 	    			yourhealthincr = rng4.nextInt(2) + 8;
 	    			Thread.sleep(2000);
 	    			System.out.println("You dealt " + yourdmgestrtmagwnd + " damage to the enemy Olbap.");
@@ -887,7 +887,7 @@ public class TrisenaiiClass extends Thread {
     	    			}
     	    		}
     	    		if (tutrlbttl.equals("Health goes poof")) {
-    	    			yourdmgestrtmagwnd = rng4.nextInt(5) + 15;
+    	    			yourdmgestrtmagwnd = rng4.nextInt(4) + 18;
     	    			Thread.sleep(2000);
     	    			System.out.println("You dealt " + yourdmgestrtmagwnd + " damage to the enemy Olbap.");
     	    			olbaphealth = olbaphealth - yourdmgestrtmagwnd;
@@ -906,7 +906,7 @@ public class TrisenaiiClass extends Thread {
     	    				tutrlbttl = tutrlbttlObj.nextLine();
     	    			}
     	    		}
-    	    		yourdmgestrtmagwnd = rng4.nextInt(5) + 15;
+    	    		yourdmgestrtmagwnd = rng4.nextInt(4) + 18;
 	    			Thread.sleep(2000);
 	    			System.out.println("You dealt " + yourdmgestrtmagwnd + " damage to the enemy Olbap.");
 	    			olbaphealth = olbaphealth - yourdmgestrtmagwnd;

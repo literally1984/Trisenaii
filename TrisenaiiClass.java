@@ -101,7 +101,7 @@ class menu extends Thread {
 }
 
 public class TrisenaiiClass extends Thread {
-  public static void main(String[] args) throws Exception, IOException, InterruptedException {
+  public static void main(String[] args) throws Exception {
     {
       File inv = new File("inventory.txt");
       inv.delete();
@@ -112,13 +112,19 @@ public class TrisenaiiClass extends Thread {
     cwf.start();
     rf.start();
     System.out.print("\033[H\033[2J");
-    if (pubstatints.successornot == true) {
-      System.out.println("Game files created successfully.");
-      Thread.sleep(1000);
-    } else {
-      //System.out.println("Error: At least one file has not been successfully created. Parts of the game might not work correctly. Please try restarting the program.");
-      //Thread.sleep(86400000);
+    System.out.print("Loading...");
+    int dotcount = 0;
+    for (;!pubstatints.successornot == true;) {
+    	Thread.sleep(1000);
+    	System.out.print(".");
+    	dotcount = dotcount + 1;
+    	if (dotcount > 10) {
+    		System.out.println("Oops, something went wrong. The game's taking too much time to load. Please try restarting the program.");
+    		Thread.sleep(999999999);
+    	}
     }
+    System.out.println();
+    Thread.sleep(1000);
     System.out.print("\033[H\033[2J");
     System.out.println(" __    __  __  __    ___   ___          __   _____  ___   _____        __   __    __  ___  __    __    ___     ___  ___  ");
     Thread.sleep(800);
@@ -234,7 +240,7 @@ public class TrisenaiiClass extends Thread {
     Thread.sleep(4000);
     System.out.println("Third weapon type: Magic weapons. Their primary attacks deal damage. Unlike the other weapon types, the secondary attacks for these change from weapon to weapon. For example, one magic weapon's secondary attack might be leeching an enemy's health, while another's would be, well, different from that.");
     Thread.sleep(5000);
-    System.out.println("Fourth and final weapon type: Electric weapons. Their primary attacks deal damage and chain damage to other enemies if there are more than one. Their secondary attacks increase attack damage.");
+    System.out.println("Fourth and final weapon type: Electric weapons. Their primary attacks deal damage and chain damage to other enemies if there are more than one. Their secondary attacks deal damage to every enemy after some amount of turns.");
     Thread.sleep(5000);
     System.out.println("This tutorial's already gone on for long enough. Let's end it by pitting you against an Olbap, a pretty common enemy in the game. Which starter weapon do you choose to use to fight against it and use in the game until you find a better weapon? (You can always switch weapon types. For example, just because you picked the starter sword right now doesn't mean you can't use electric weapons later on.)");
     Thread.sleep(6000);
@@ -305,7 +311,7 @@ public class TrisenaiiClass extends Thread {
       System.out.println("Primary attack: Health goes poof[18-22 damage dealt]    Secondary attack: Leech[+8-10 health per attack, lasts for 3 turns, cooldown is 2 turns]");
       break;
     case "Damaged cable":
-      System.out.println("Primary attack: Electric shock[10-15 damage dealt, 5-10 damage chained to other enemies]  Secondary attack: Static touch[+5 damage dealt, 2 turns]");
+      System.out.println("Primary attack: Electric shock[15-18 damage dealt, 5-10 damage chained to other enemies]    Secondary attack: Charging up [Two turns after the attack is used, 30 damage will be dealt to every enemy, cooldown is 3 turns]");
       break;
     }
     System.out.println("To do a primary attack or secondary attack, type in its name. Don't type in the damage it deals or how long it lasts, just the name.");
@@ -1239,6 +1245,9 @@ public class TrisenaiiClass extends Thread {
          if (yourhealth <= 0) {
         	System.out.println("You lost the battle... kinda nooby ngl");
          }
+         break;
+    case ("Electric shock"):
+    	
     default:
       for (; !tutrlbttl.equals("Heavy hit") && !tutrlbttl.equals("Vicious slice") && !tutrlbttl.equals("Block")
           && !tutrlbttl.equals("Health goes poof") && !tutrlbttl.equals("Leech") && !tutrlbttl.equals("Electric shock")

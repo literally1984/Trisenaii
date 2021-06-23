@@ -311,7 +311,7 @@ public class TrisenaiiClass extends Thread {
       System.out.println("Primary attack: Health goes poof[18-22 damage dealt]    Secondary attack: Leech[+8-10 health per attack, lasts for 3 turns, cooldown is 2 turns]");
       break;
     case "Damaged cable":
-      System.out.println("Primary attack: Electric shock[15-18 damage dealt, 5-10 damage chained to other enemies]    Secondary attack: Charging up [Two turns after the attack is used, 30 damage will be dealt to every enemy, cooldown is 3 turns]");
+      System.out.println("Primary attack: Electric shock[12-18 damage dealt, 5-10 damage chained to other enemies]    Secondary attack: Charging up [Two turns after the attack is used, 30 damage will be dealt to every enemy, cooldown is 3 turns]");
       break;
     }
     System.out.println("To do a primary attack or secondary attack, type in its name. Don't type in the damage it deals or how long it lasts, just the name.");
@@ -331,6 +331,9 @@ public class TrisenaiiClass extends Thread {
     int yourdmgestrtmagwnd = rng4.nextInt(4) + 18;
     int olbapattckdmgesmw = rng4.nextInt(18) + 5;
     int yourhealthincr = rng4.nextInt(2) + 8;
+    Random rng5 = new Random();
+    int yourdmgedcable = rng5.nextInt(6) + 15;
+    int olbapattckdmgedcable = rng5.nextInt(18) + 5;
     switch (tutrlbttl) {
     case "Heavy hit":
       yourdmgeheavystick = rng1.nextInt(10) + 20;

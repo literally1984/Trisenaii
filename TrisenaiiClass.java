@@ -332,7 +332,7 @@ public class TrisenaiiClass extends Thread {
     int olbapattckdmgesmw = rng4.nextInt(18) + 5;
     int yourhealthincr = rng4.nextInt(2) + 8;
     Random rng5 = new Random();
-    int yourdmgedcable = rng5.nextInt(6) + 15;
+    int yourdmgedcable = rng5.nextInt(6) + 12;
     int olbapattckdmgedcable = rng5.nextInt(18) + 5;
     switch (tutrlbttl) {
     case "Heavy hit":
@@ -1250,11 +1250,248 @@ public class TrisenaiiClass extends Thread {
          }
          break;
     case ("Electric shock"):
-    	
+    	yourdmgedcable = rng5.nextInt(6) + 12;
+    	Thread.sleep(2000);
+    	System.out.println("You dealt " + yourdmgedcable + " damage to the enemy Olbap.");
+    	olbaphealth = olbaphealth - yourdmgedcable;
+    	System.out.println("Enemy Olbap health: " + olbaphealth);
+    	for (; olbaphealth > 0 && yourhealth > 0;) {
+    		if (olbaphealth <= 0) {
+    			break;
+    		}
+    		if (yourhealth <= 0) {
+    			break;
+    		}
+    		olbapattckdmgedcable = rng5.nextInt(18) + 5;
+    		Thread.sleep(2000);
+    		System.out.println("You took " + olbapattckdmgedcable + " damage from the enemy Olbap.");
+    		yourhealth = yourhealth - olbapattckdmgedcable;
+    		System.out.println("Your health: " + yourhealth);
+    		if (olbaphealth <= 0) {
+    			break;
+    		}
+    		if (yourhealth <= 0) {
+    			break;
+    		}
+    		Thread.sleep(2000);
+    		System.out.println("Your turn:");
+    		System.out.println("Primary attack: Electric shock[12-18 damage dealt, 5-10 damage chained to other enemies]    Secondary attack: Charging up[Two turns after the attack is used, 30 damage will be dealt to every enemy, cooldown is 3 turns]");
+    		tutrlbttl = tutrlbttlObj.nextLine();
+    		if (!tutrlbttl.equals("Electric shock") && !tutrlbttl.equals("Charging up")) {
+    			for (;!tutrlbttl.equals("Electric shock") && !tutrlbttl.equals("Charging up");) {
+    				System.out.println("Error: User input not recognized. Try again?");
+    				tutrlbttl = tutrlbttlObj.nextLine();
+    			}
+    		}
+    		if (tutrlbttl.equals("Electric shock")) {
+    			yourdmgedcable = rng5.nextInt(6) + 12;
+    			Thread.sleep(2000);
+    			System.out.println("You dealt " + yourdmgedcable + " damage to the enemy Olbap.");
+    			olbaphealth = olbaphealth - yourdmgedcable;
+    			System.out.println("Enemy Olbap health: " + olbaphealth);
+    			if (olbaphealth <= 0) {
+    				break;
+    			}
+    			if (yourhealth <= 0) {
+    				break;
+    			}
+    			continue;
+    		}
+    		else if (tutrlbttl.equals("Charging up")) {
+    			System.out.println("You started charging up. In 2 turns, 30 damage will be dealt to all enemies in addition to your normal attack.");
+    			for (int counterdmgedcable = 0; olbaphealth > 0 && yourhealth > 0 && counterdmgedcable < 1; ++counterdmgedcable) {
+    				if (olbaphealth <= 0) {
+    					break;
+    				}
+    				if (yourhealth <= 0) {
+    					break;
+    				}
+    				olbapattckdmgedcable = rng5.nextInt(18) + 5;
+    				Thread.sleep(2000);
+    				System.out.println("You took " + olbapattckdmgedcable + " damage from the enemy Olbap.");
+    				yourhealth = yourhealth - olbapattckdmgedcable;
+    				System.out.println("Your health: " + yourhealth);
+    				if (olbaphealth <= 0) {
+    					break;
+    				}
+    				if (yourhealth <= 0) {
+    					break;
+    				}
+    				Thread.sleep(2000);
+    				System.out.println("Your turn:");
+    				System.out.println("Primary attack: Electric shock[12-18 damage dealt, 5-10 damage chained to other enemies]    Secondary attack: Charging up[On cooldown]");
+    				tutrlbttl = tutrlbttlObj.nextLine();
+    				if (!tutrlbttl.equals("Electric shock") && !tutrlbttl.equals("Charging up")) {
+    					for(; !tutrlbttl.equals("Electric shock") && !tutrlbttl.equals("Charging up");) {
+    						System.out.println("Error: User input not recognized. Try again?");
+    						tutrlbttl = tutrlbttlObj.nextLine();
+    					}
+    				}
+    				if (tutrlbttl.equals("Electric shock")) {
+    					yourdmgedcable = rng5.nextInt(6) + 12;
+    					Thread.sleep(2000);
+    					System.out.println("You dealt " + yourdmgedcable + " damage to the enemy Olbap.");
+    					olbaphealth = olbaphealth - yourdmgedcable;
+    					System.out.println("Enemy Olbap health: " + olbaphealth);
+    					if (olbaphealth <= 0) {
+    						break;
+    					}
+    					if (yourhealth <= 0) {
+    						break;
+    					}
+    					continue;
+    				}
+    				else if (tutrlbttl.equals("Charging up")) {
+    					for (;!tutrlbttl.equals("Electric shock");) {
+    						System.out.println("Error: Attack is on cooldown. Try again?");
+    						tutrlbttl = tutrlbttlObj.nextLine();
+    					}
+    				}
+    				yourdmgedcable = rng5.nextInt(6) + 12;
+    				Thread.sleep(2000);
+    				System.out.println("You dealt " + yourdmgedcable + " damage to the enemy Olbap.");
+    				olbaphealth = olbaphealth - yourdmgedcable;
+    				System.out.println("Enemy Olbap health: " + olbaphealth);
+    				if (olbaphealth <= 0) {
+    					break;
+    				}
+    				if (yourhealth <= 0) {
+    					break;
+    				}
+    			}
+    			if (olbaphealth <= 0) {
+					break;
+				}
+				if (yourhealth <= 0) {
+					break;
+				}
+    			System.out.println("bruh enter");
+    			boolean elshornot = false;
+    			olbapattckdmgedcable = rng5.nextInt(18) + 5;
+    			Thread.sleep(2000);
+    			System.out.println("You took " + olbapattckdmgedcable + " damage from the enemy Olbap.");
+    			yourhealth = yourhealth - olbapattckdmgedcable;
+    			System.out.println("Your health: " + yourhealth);
+    			if (olbaphealth <= 0) {
+    				break;
+    			}
+    			if (yourhealth <= 0) {
+    				break;
+    			}
+    			Thread.sleep(2000);
+    			System.out.println("Your turn:");
+    			System.out.println("The enemy Olbap took 30 damage.");
+    			olbaphealth = olbaphealth - 30;
+    			System.out.println("Enemy Olbap health: " + olbaphealth);
+    			System.out.println("Primary attack: Electric shock[12-18 damage dealt, 5-10 damage chained to other enemies]    Secondary attack: Charging up[On cooldown]");
+    			tutrlbttl = tutrlbttlObj.nextLine();
+    			if (!tutrlbttl.equals("Electric shock") && !tutrlbttl.equals("Charging up")) {
+    				for (;!tutrlbttl.equals("Electric shock") && !tutrlbttl.equals("Charging up");) {
+    					System.out.println("Error: User input not recognized. Try again?");
+    					tutrlbttl = tutrlbttlObj.nextLine();
+    				}
+    			}
+    			if (tutrlbttl.equals("Electric shock")) {
+    				yourdmgedcable = rng5.nextInt(6) + 12;
+    				Thread.sleep(2000);
+    				System.out.println("You dealt " + yourdmgedcable + " damage to the enemy Olbap.");
+    				olbaphealth = olbaphealth - yourdmgedcable;
+    				System.out.println("Enemy Olbap health: " + olbaphealth);
+    				if (olbaphealth <= 0) {
+    					break;
+    				}
+    				if (yourhealth <= 0) {
+    					break;
+    				}
+    				elshornot = true;
+    			}
+    			else if (tutrlbttl.equals("Charging up")) {
+    				for (;!tutrlbttl.equals("Electric shock");) {
+    					System.out.println("Error: Attack is on cooldown. Try again?");
+    					tutrlbttl = tutrlbttlObj.nextLine();
+    				}
+    			}
+    			if (elshornot == false) {
+    				yourdmgedcable = rng5.nextInt(6) + 12;
+    				Thread.sleep(2000);
+    				System.out.println("You dealt " + yourdmgedcable + " damage to the enemy Olbap.");
+    				olbaphealth = olbaphealth - yourdmgedcable;
+    				System.out.println("Enemy Olbap health: " + olbaphealth);
+    				if (olbaphealth <= 0) {
+    					break;
+    				}
+    				if (yourhealth <= 0) {
+    					break;
+    				}
+    			}
+    			System.out.println("Bruh exit");
+    			for (int cldwnchrgup = 0; cldwnchrgup < 3 ; ++cldwnchrgup) {
+    				if (olbaphealth <= 0) {
+    					break;
+    				}
+    				if (yourhealth <= 0) {
+    					break;
+    				}
+    				olbapattckdmgedcable = rng5.nextInt(18) + 5;
+        			Thread.sleep(2000);
+        			System.out.println("You took " + olbapattckdmgedcable + " damage from the enemy Olbap.");
+        			yourhealth = yourhealth - olbapattckdmgedcable;
+        			System.out.println("Your health: " + yourhealth);
+        			if (olbaphealth <= 0) {
+        				break;
+        			}
+        			if (yourhealth <= 0) {
+        				break;
+        			}
+        			Thread.sleep(2000);
+        			System.out.println("Your turn:");
+        			System.out.println("Primary attack: Electric shock[12-18 damage dealt, 5-10 damage chained to other enemies]    Secondary attack: Charging up[On cooldown]");
+        			tutrlbttl = tutrlbttlObj.nextLine();
+        			if (!tutrlbttl.equals("Electric shock") && !tutrlbttl.equals("Charging up")) {
+        				for (;!tutrlbttl.equals("Electric shock") && !tutrlbttl.equals("Charging up");) {
+        					System.out.println("Error: User input not recognized.");
+        					tutrlbttl = tutrlbttlObj.nextLine();
+        				}
+        			}
+        			if (tutrlbttl.equals("Electric shock")) {
+        				yourdmgedcable = rng5.nextInt(6) + 12;
+        				Thread.sleep(2000);
+        				System.out.println("You dealt " + yourdmgedcable + " damage to the enemy Olbap.");
+        				olbaphealth = olbaphealth - yourdmgedcable;
+        				System.out.println("Enemy Olbap health: " + olbaphealth);
+        				if (olbaphealth <= 0) {
+        					break;
+        				}
+        				if (yourhealth <= 0) {
+        					break;
+        				}
+        				continue;
+        			}
+        			else if (tutrlbttl.equals("Charging up")) {
+        				for (;!tutrlbttl.equals("Electric shock");) {
+        					System.out.println("Error: Attack is on cooldown. Try again?");
+        					tutrlbttl = tutrlbttlObj.nextLine();
+        				}
+        			}
+        			yourdmgedcable = rng5.nextInt(6) + 12;
+    				Thread.sleep(2000);
+    				System.out.println("You dealt " + yourdmgedcable + " damage to the enemy Olbap.");
+    				olbaphealth = olbaphealth - yourdmgedcable;
+    				System.out.println("Enemy Olbap health: " + olbaphealth);
+    				if (olbaphealth <= 0) {
+    					break;
+    				}
+    				if (yourhealth <= 0) {
+    					break;
+    				}
+    			}
+    		}
+    	}
+    	break;
     default:
       for (; !tutrlbttl.equals("Heavy hit") && !tutrlbttl.equals("Vicious slice") && !tutrlbttl.equals("Block")
           && !tutrlbttl.equals("Health goes poof") && !tutrlbttl.equals("Leech") && !tutrlbttl.equals("Electric shock")
-          && !tutrlbttl.equals("Static touch");) {
+          && !tutrlbttl.equals("Charging up");) {
         System.out.println("Error: User input not recognized. Try again?");
         tutrlbttl = tutrlbttlObj.nextLine();
       }

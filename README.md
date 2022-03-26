@@ -1,3 +1,5 @@
+# Behold, another one of my repos that I have abandoned. I am very sure that I will never touch this project again, but I'll leave it up for future me.
+
 # Trisenaii
 The official Github repository of Trisenaii, a text-based RPG written in Java.
 

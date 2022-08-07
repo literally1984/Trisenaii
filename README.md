@@ -17,3 +17,6 @@ Usually, Linux based shells support these codes, and Windows based shells do not
 
 
 You're also going to want to enable ASCII control characters in your IDE if it's not already on. This game uses ASCII control characters in the form of \n. This is helpful for writing to files.
+
+
+If you want to run this on Windows for some strange demented reason then use the Windows Terminal which has ANSI escape code and ASCII control character support.
